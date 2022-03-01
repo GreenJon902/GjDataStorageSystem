@@ -9,3 +9,11 @@ if __name__ == "__main__":
     os.environ["KIVY_NO_CONSOLELOG"] = "True"
     # noinspection PyUnresolvedReferences
     import kivy
+
+    base_logger.log_info("Setup Kivy!")
+    base_logger.log_info("Starting...")
+
+    from gjDataStorageSystemApp import GjDataStorageSystemApp
+
+    gjDataStorageSystemApp = GjDataStorageSystemApp()
+    gjDataStorageSystemApp.run()
