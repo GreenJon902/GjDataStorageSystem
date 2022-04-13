@@ -1,19 +1,13 @@
-<Page>:
+<SearchBoxField>:
     canvas.before:
         Color:
-            rgb: self.bg_bg_color
+            rgba: (1, 0, 1, 0.3) if self.mouse_over else (0, 0, 0, 1)
 
         Rectangle:
-            pos: 0, 0
+            pos: self.pos
             size: self.size
 
-        Color:
-            rgb: self.bg_fg_color
-
-        Rectangle:
-            pos: self.bg_fg_offset, self.bg_fg_offset
-            size: self.size[0] - self.bg_fg_offset * 2, self.size[1] - self.bg_fg_offset * 2
-
-
-<SearchBoxField>:
-    multiline: False
+    Label:
+        text: "Testing"
+        color: (50/255, 50/255, 50/255) if root.mouse_over else (1, 1, 1)
+        text_size: self.size

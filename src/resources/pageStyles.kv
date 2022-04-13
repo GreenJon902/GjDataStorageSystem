@@ -1,11 +1,44 @@
-ProjectSearchPage:
-    bg_bg_color: (20/255, 20/255, 20/255) #(0/255, 10/255, 0/255)
-    bg_fg_color: (50/255, 50/255, 50/255) #(0/255, 50/255, 0/255)
+#:include resources/constants.kv
 
-    bg_fg_offset: 20
+Root:
+    ProjectSearchPage:
+
+
+<Root@RelativeLayout>:
+    canvas.before:
+        Color:
+            rgb: bg_bg_color
+
+        Rectangle:
+            pos: 0, 0
+            size: self.size
+
+<Page>:
+    pos: bg_fg_offset, bg_fg_offset
+    size_hint: None, None
+    size: self.parent.size[0] - bg_fg_offset * 2, self.parent.size[1] - bg_fg_offset * 2
+
+    canvas.before:
+        Color:
+            rgb: bg_fg_color
+
+        Rectangle:
+            pos: 0, 0
+            size: self.size
 
 
 <ProjectSearchPage>:
     SearchBoxField:
-        size_hint: 0.9, None
+        size_hint_y: None
         height: "20sp"
+        pos_hint: {"top": 1}
+
+        on_mouse_over: print(*args)
+
+        canvas.after:
+            Color:
+                rgb: 0.9, 0.9, 0.9
+
+            Line:
+                points: 0, self.y, self.width, self.y
+                width: 1
