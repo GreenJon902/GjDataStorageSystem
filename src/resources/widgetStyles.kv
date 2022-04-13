@@ -1,0 +1,19 @@
+<Page>:
+    canvas.before:
+        Color:
+            rgb: self.bg_bg_color
+
+        Rectangle:
+            pos: 0, 0
+            size: self.size
+
+        Color:
+            rgb: self.bg_fg_color
+
+        Rectangle:
+            pos: self.bg_fg_offset, self.bg_fg_offset
+            size: self.size[0] - self.bg_fg_offset * 2, self.size[1] - self.bg_fg_offset * 2
+
+
+<SearchBoxField>:
+    multiline: False

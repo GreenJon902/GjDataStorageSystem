@@ -3,7 +3,10 @@ from kivy.app import App
 from kivy.lang import Builder
 
 # noinspection PyUnresolvedReferences
-from widgets.tabLayout import TabLayout
+from src.widgets.pages.projectSearchPage import ProjectSearchPage
+
+# noinspection PyUnresolvedReferences
+from src.widgets.fields.searchBoxField import SearchBoxField
 
 
 class GjDataStorageSystemApp(App, ClassWithLogger):
@@ -12,5 +15,5 @@ class GjDataStorageSystemApp(App, ClassWithLogger):
         App.__init__(self, **kwargs)
 
     def build(self):
-
-        return Builder.load_file("resources/kv.kv")
+        Builder.load_file("resources/widgetStyles.kv")
+        return Builder.load_file("resources/pageStyles.kv")
