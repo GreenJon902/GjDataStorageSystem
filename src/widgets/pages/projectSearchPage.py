@@ -20,4 +20,4 @@ class ProjectSearchPage(Page):
         project_holder.clear_widgets()
 
         for project in content:
-            project_holder.add_widget(ProjectField(id=project.id, name=project.name))
+            project_holder.add_widget(ProjectField(id=project.id, name=project.name, description=project.description))

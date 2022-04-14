@@ -37,7 +37,14 @@
             halign: "left"
             valign: "top"
 
-            pos_hint: {"top": 1}
+        Label:
+            text: "[color=" + utils.get_hex_from_color(project_description_color_when_highlighted if root.mouse_over else project_description_color) + "]" + str(root.description) + "[/color]"
+            color: project_title_color_when_highlighted if root.mouse_over else project_title_color
+            text_size: self.size
+            markup: True
+
+            halign: "left"
+            valign: "bottom"
 
 
 <PaddingLayout>:

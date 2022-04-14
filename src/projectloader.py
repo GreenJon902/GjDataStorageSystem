@@ -12,6 +12,7 @@ class Project:
     id: int
     name: str
     type: str
+    description: str
     status: list[str]
 
     tags: dict[str: any]
@@ -20,15 +21,15 @@ class Project:
         self.id = kwargs.pop("id")
         self.name = kwargs.pop("name")
         self.type = kwargs.pop("type")
+        self.description = kwargs.pop("description")
         self.status = kwargs.pop("status", [])
-
         self.tags = kwargs.pop("tags", {})
 
         if len(kwargs) != 0:
             raise TypeError("Too many arguments supplied")
 
     def __repr__(self):
-        return f"Project(id={self.id}, name={self.name}, type={self.type}" + \
+        return f"Project(id={self.id}, name={self.name}, type={self.type}, description={self.description}" + \
                (f", status={self.status}" if self.status else "") + \
                (f", tags={self.tags}" if self.tags else "") + ")"
 
