@@ -38,7 +38,6 @@ class ProjectList:
     def __init__(self, from_string=None):
         if from_string:
             self._projects = eval(from_string)
-            print(self._projects)
 
     def __repr__(self):
         return repr(self._projects)
