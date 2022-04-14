@@ -5,7 +5,6 @@ from typing import Callable
 from betterLogger import ClassWithLogger
 from kivy.clock import Clock
 
-
 projects_file_path = "P:/map.json"
 
 
@@ -29,7 +28,9 @@ class Project:
             raise TypeError("Too many arguments supplied")
 
     def __repr__(self):
-        return f"Project(id={self.id}, name={self.name}, type={self.type}, status={self.status}, tags={self.tags})"
+        return f"Project(id={self.id}, name={self.name}, type={self.type}" + \
+               (f", status={self.status}" if self.status else "") + \
+               (f", tags={self.tags}" if self.tags else "") + ")"
 
 
 class ProjectList:
@@ -59,7 +60,6 @@ class ProjectLoader(ClassWithLogger):
         else:
             async_run(self._load_projects, lambda _: callback(self._projects))
 
-
     def _load_projects(self):
         self.log_info("Loading projects file")
         self.log_debug(f"Loading {projects_file_path}")
@@ -71,4 +71,5 @@ def async_run(function, callback):
     def async_run_wrapper(_function, _callback):
         _function()
         Clock.schedule_once(_callback)
+
     threading.Thread(target=async_run_wrapper, args=(function, callback)).start()
