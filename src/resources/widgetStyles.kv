@@ -1,7 +1,7 @@
 <SearchBoxField>:
     canvas.before:
         Color:
-            rgba: (1, 1, 1, 0.3) if self.mouse_over else (0, 0, 0, 0)
+            rgba: field_highlight_color if self.mouse_over else (0, 0, 0, 0)
 
         Rectangle:
             pos: 0, 0
@@ -9,5 +9,5 @@
 
     Label:
         text: "Testing"
-        color: (50/255, 50/255, 50/255) if root.mouse_over else (1, 1, 1)
+        color: text_color_when_highlighted if root.mouse_over else text_color
         text_size: self.size
