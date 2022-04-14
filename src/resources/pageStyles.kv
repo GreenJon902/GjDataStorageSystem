@@ -43,10 +43,13 @@ Root:
                 points: 0, self.y, self.width, self.y
                 width: 1
     ScrollView:
-        id: project_holder
-
         size_hint_y: None
         height: root.height - sp(20)
         top: search_box_field.y
 
         do_scroll: False, True
+
+        SameSizeListHolderLayout:
+            id: project_holder
+
+            child_size: 10

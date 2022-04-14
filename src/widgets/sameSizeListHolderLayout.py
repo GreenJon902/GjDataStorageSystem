@@ -6,6 +6,10 @@ from kivy.uix.widget import Widget
 class SameSizeListHolderLayout(RelativeLayout):
     child_height: int = NumericProperty(100)
 
+    def __init__(self, **kwargs):
+        RelativeLayout.__init__(self, **kwargs)
+        self.size_hint_y = None
+
     def do_layout(self, *args):
         y = 0
 
@@ -17,3 +21,5 @@ class SameSizeListHolderLayout(RelativeLayout):
             child.y = y
 
             y += self.child_height
+
+        self.height = y

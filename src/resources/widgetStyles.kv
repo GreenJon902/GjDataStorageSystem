@@ -1,3 +1,5 @@
+#:import utils kivy.utils
+
 <SearchBoxField>:
     canvas.before:
         Color:
@@ -8,6 +10,41 @@
             size: self.size
 
     Label:
-        text: "Testing"
+        text: "Search"
         color: text_color_when_highlighted if root.mouse_over else text_color
         text_size: self.size
+
+
+<ProjectField>:
+    canvas.before:
+        Color:
+            rgba: field_highlight_color if self.mouse_over else (0, 0, 0, 0)
+
+        Rectangle:
+            pos: 0, 0
+            size: self.size
+
+
+    PaddingLayout:
+        padding: 10
+
+        Label:
+            text: "[b]" + root.name + "[/b]\n[color=" + utils.get_hex_from_color(project_id_color_when_highlighted if root.mouse_over else project_id_color) + "]" + str(root.id) + "[/color]"
+            color: project_title_color_when_highlighted if root.mouse_over else project_title_color
+            text_size: self.size
+            markup: True
+
+            halign: "left"
+            valign: "top"
+
+            pos_hint: {"top": 1}
+
+
+<PaddingLayout>:
+    canvas.before:
+        PushMatrix
+        Translate:
+            x: self.padding[0]
+            y: self.padding[1]
+    canvas.after:
+        PopMatrix

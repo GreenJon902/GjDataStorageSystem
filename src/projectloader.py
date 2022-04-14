@@ -42,6 +42,9 @@ class ProjectList:
     def __repr__(self):
         return repr(self._projects)
 
+    def __iter__(self):
+        return iter(self._projects.values())
+
 
 class ProjectLoader(ClassWithLogger):
     _projects: ProjectList = None
