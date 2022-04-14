@@ -11,7 +11,7 @@ projects_file_path = "P:/map.json"
 
 class Project:
     id: int
-    name: int
+    name: str
     type: str
     status: list[str]
 
