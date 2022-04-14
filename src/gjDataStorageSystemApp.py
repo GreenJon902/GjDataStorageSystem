@@ -7,6 +7,11 @@ from src.widgets.pages.projectSearchPage import ProjectSearchPage
 
 # noinspection PyUnresolvedReferences
 from src.widgets.fields.searchBoxField import SearchBoxField
+# noinspection PyUnresolvedReferences
+from src.widgets.fields.projectField import ProjectField
+
+# noinspection PyUnresolvedReferences
+from src.widgets.sameSizeListHolderLayout import SameSizeListHolderLayout
 
 
 class GjDataStorageSystemApp(App, ClassWithLogger):
