@@ -9,10 +9,25 @@
             pos: 0, 0
             size: self.size
 
-    Label:
-        text: "Search"
-        color: text_color_when_highlighted if root.mouse_over else text_color
-        text_size: self.size
+    BoxLayout:
+        PaddingLayout:
+            padding: sp(2)
+
+            size_hint_x: None
+            width: (search_icon.height * search_icon.texture.width / search_icon.texture.height) if search_icon.texture else 100
+
+            Image:
+                id: search_icon
+                source: "resources/search-icon.png"
+
+        Widget:
+            size_hint_x: None
+            width: sp(2)
+
+        Label:
+            text: "Search"
+            color: project_search_color_when_highlighted if root.mouse_over else project_search_color
+            text_size: self.size
 
 
 <ProjectField>:
